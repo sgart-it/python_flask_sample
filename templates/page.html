@@ -1,0 +1,28 @@
+<!-- page.html -->
+{% extends "base.html" %}
+
+{% block head %}
+  <!-- contentuto della pagina sovrascritto -->
+  <style>
+    hr{
+      margin-top: 90px;;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <h1>{{page["title"]}}</h1>
+  <div class="body">
+    {# commento: uso "safe" per evitare l'escape dei codici html #}
+    {{page["body"] | safe}}
+  </div>
+
+  <hr>
+  {% raw %}
+   <p>
+      Esempio di escape: con il tag {% raw %} posso usare le { parentesi graffe }
+      senza che vengano processate dal parser del template
+   </p>
+   {% endraw %}
+
+{% endblock %}
